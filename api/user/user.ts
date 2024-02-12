@@ -1,11 +1,6 @@
 import { expect, request } from "@playwright/test";
 import { user } from "../../models/user/user";
 
-const getRandomString = (prefix) => `${prefix}-${Date.now()}`;
-
-const userName = getRandomString('user');
-const password = getRandomString('password@');
-
 export async function createUser() {
     const apiRequest = await request.newContext();
     // creating a post request with random user data
@@ -20,8 +15,9 @@ export async function createUser() {
     // assert that api is working as expected
     expect(response.ok()).toBeTruthy();
     expect(response.status()).toBe(200);
+    const { username, password } = user;
 
-    return { userID, userName, password };
+    return { userID, username, password };
 }
 
 export async function login(userName, password) {
@@ -34,6 +30,9 @@ export async function login(userName, password) {
             "password": password,
         }
     });
+
+    expect(responseLogin.ok()).toBeTruthy();
+    expect(responseLogin.status()).toBe(200);
 }
 
 export async function deleteUser(userName: string) {

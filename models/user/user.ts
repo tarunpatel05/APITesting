@@ -1,6 +1,6 @@
 export const user = {
     "id": 0,
-    "username": "testplaywright",
+    "username": `test-${Date.now()}`,
     "firstName": "playwright",
     "lastName": "testing",
     "email": "playwright@gustr.com",

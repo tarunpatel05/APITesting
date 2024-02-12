@@ -1,21 +1,21 @@
 import { test, expect } from '@playwright/test';
 import { createUser, deleteUser, login } from '../../api/user/user';
 
-
 test.describe("Delete User", () => {
   let userName, password, userID
 
   test.beforeAll(async () => {
     const response = await createUser();
     userID = response.userID;
-    userName = response.userName;
+    userName = response.username;
     password = response.password;
 
     await login(userName, password);
 
   });
 
-  test("Delete valid user", async () => {
+  test("Delete valid user", async ({ request }) => {
+    // deleting the user
     await deleteUser(userName);
   });
 

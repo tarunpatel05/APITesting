@@ -7,7 +7,7 @@ test.describe("Test User Login and Logout", () => {
   test.beforeAll(async () => {
     const response = await createUser();
     userID = response.userID;
-    userName = response.userName;
+    userName = response.username;
     password = response.password;
   })
 

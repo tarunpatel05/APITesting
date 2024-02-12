@@ -5,10 +5,10 @@ test.describe("Delete an order", () => {
     let orderId;
 
     test.beforeAll(async () => {
-        orderId = await createOrder();
+        orderId = (await createOrder()).id;
     });
 
-    test("Create and delete an order", async ({ request }) => {
+    test("Delete order", async ({ request }) => {
         // delete order using orderid
         const deletOrder = await request.delete(`store/order/${orderId}`);
 
