@@ -1,12 +1,16 @@
 import { test, expect } from "@playwright/test"
-import { pet } from "../../models/pet/pet";
+import { pets } from "../../models/pet/pets";
 
-test("Create a new pet", async ({ request }) => {
-  const response = await request.post(`pet`, {
-    data: pet
-  });
+test.describe("Add a new pet", () => {
+  for (const pet of pets) {
+    test(`Create a ${pet.name} pet`, async ({ request }) => {
+      const response = await request.post(`pet`, {
+        data: pet.pet
+      });
 
-  // assert that api is working as expected
-  expect(response.ok()).toBeTruthy();
-  expect(response.status()).toBe(200);
+      // assert that api is working as expected
+      expect(response.status()).toBe(pet.status);
+
+    });
+  }
 });

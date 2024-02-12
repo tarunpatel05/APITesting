@@ -15,5 +15,4 @@ export const pet = {
         }
     ],
     "status": "available"
-
 }
