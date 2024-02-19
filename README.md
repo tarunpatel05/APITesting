@@ -1,4 +1,4 @@
-# petstore-playwright
+# pokemon-playwright
 Testautomation for pokemon with playwright with typescript
 
 ## How to use
