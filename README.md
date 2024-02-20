@@ -8,7 +8,7 @@ for single file run the command `npx playwright test tests/pokemon/getPokemon.sp
 Or To run a single test, navigate to the test case and click on `Run` link on the test case in the editor or in the playwright test extension.
 
 ## Folder Structure
-The tests are located in the directory `tests` with each of api having it's own folder - `pet`, `store`, `user`.
+The tests are located in the directory `tests` with each of api having it's own folder - `pokemon`, `berries`, `games`.
 
 The implementation for the methods of the api is coded in `.\api` directory.
 

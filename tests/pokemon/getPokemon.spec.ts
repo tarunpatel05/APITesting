@@ -35,14 +35,11 @@ test.describe("GET pokemon details", () => {
     // Specific value checks
     expect(pikachuReponse.name).toBe("pikachu");
     expect(pikachuReponse.id).toEqual(25);
-    
-
   });
 
   //Negative Testing
   test("Getting Invalid Pikachu", async () => {
     const pikachuReponse = await getWrongPokemon(wrongPokemon); 
     expect(pikachuReponse.status()).toBe(404);
-
   });
 });
