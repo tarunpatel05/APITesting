@@ -2,16 +2,16 @@ import { test, expect } from "@playwright/test";
 import { getPokemon, getWrongPokemon } from "../../api/pokemon/pokemon";
 
 test.describe("GET pokemon details", () => {
-  let pokemonName;
-  let wrongPokemon;
+  let pokemonName: string;
+  let wrongPokemon: string;
 
   test.beforeAll(async () => {
     pokemonName = "pikachu";
-    wrongPokemon ="WrongPikachu"
+    wrongPokemon = "WrongPikachu";
   });
 
   test.afterAll(async () => {
-    console.log("Do nothing in after all" )
+    console.log("Do nothing in after all");
   });
   //getting pokemon
   test("Getting Pikachu", async () => {
@@ -39,7 +39,7 @@ test.describe("GET pokemon details", () => {
 
   //Negative Testing
   test("Getting Invalid Pikachu", async () => {
-    const pikachuReponse = await getWrongPokemon(wrongPokemon); 
+    const pikachuReponse = await getWrongPokemon(wrongPokemon);
     expect(pikachuReponse.status()).toBe(404);
   });
 });
