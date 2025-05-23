@@ -1,6 +1,6 @@
 name: Playwright API Tests
 
-on:
+on: # This workflow will run on every push or pull request to the main branch, it is 'event',
   push:
     branches:
       - main
@@ -9,13 +9,13 @@ on:
       - main
 
 jobs:
-  test:
+  test:   # this is test job, there can be multiple jobs, like build, deploy, etc.
     runs-on: ubuntu-latest
 
-    steps:
+    steps:  # these are the steps that will be executed in the job
       # Checkout the repository
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4   # this action checks out your repository under $GITHUB_WORKSPACE, so your workflow can access it, checkout current branch or pull request
 
       # Set up Node.js
       - name: Set up Node.js
